@@ -1,0 +1,228 @@
+{% load static %}
+{% include 'partial/_layout.html' %}
+<html>
+  <head>
+    <title>The juery example</title>
+    <script
+      type="text/javascript"
+      src="{% static '/jquery/jquery-3.7.1.min.js' %}"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script type="text/javascript">
+      var endpoint = "onemonths/";
+      var defaultData = [];
+      var labels = [];
+
+      $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: function (data) {
+          labels = data.labels;
+          defaultData = data.temp;
+          const ctx = document.getElementById("myChart");
+
+          var config = {
+            type: "line",
+            data: {
+              labels: labels,
+              datasets: [
+                {
+                  label: "Temperature",
+                  data: defaultData,
+                },
+              ],
+            },
+            
+            options: {
+                scales: {
+                  x: {        
+                             
+                      display: false                    
+                  },
+                  y: {
+                      
+                      beginAtZero: true
+                    }
+                }
+              },
+          };
+          line_chart = new Chart(ctx, config);
+        },
+
+        error: function (error_data) {
+          console.log("error");
+          console.log(error_data);
+        },
+      });
+
+      function oneMonth() {
+        var endpoint = "onemonths/";
+        var defaultData = [];
+        var labels = [];
+
+        $.ajax({
+          method: "GET",
+          url: endpoint,
+          success: function (data) {
+            labels = data.labels;
+            defaultData = data.temp;
+
+            line_chart.destroy();
+            const ctx = document.getElementById("myChart");
+
+            var config = {
+              type: "line",
+              data: {
+                labels: labels,
+                datasets: [
+                  {
+                    label: "Temperature",
+                    data: defaultData,
+                  },
+                ],
+              },
+              
+              options: {
+                scales: {
+                  x: {        
+                             
+                      display: false                    
+                  },
+                  y: {
+                      
+                      beginAtZero: true
+                    }
+                }
+              },
+            };
+            line_chart = new Chart(ctx, config);
+          },
+
+          error: function (error_data) {
+            console.log("error");
+            console.log(error_data);
+          },
+        });
+      }
+
+      function twoMonth() {
+        
+        var endpoint = "twomonths/";
+        var defaultData = [];
+        var labels = [];
+
+        $.ajax({
+          method: "GET",
+          url: endpoint,
+          success: function (data) {
+            labels = data.labels;
+            defaultData = data.temp;
+            
+            line_chart.destroy();
+            const ctx = document.getElementById("myChart");
+
+            var config = {
+              type: "line",
+              data: {
+                labels: labels,
+                datasets: [
+                  {
+                    label: "Temperature",
+                    data: defaultData,
+                  },
+                ],
+              },
+              
+              options: {
+                scales: {
+                  x: {        
+                             
+                      display: false                    
+                  },
+                  y: {
+                      
+                      beginAtZero: true
+                    }
+                }
+              },
+            };
+
+            line_chart = new Chart(ctx, config);
+          },
+
+          error: function (error_data) {
+            document.write('error')
+            console.log("error");
+            console.log(error_data);
+          },
+        });
+      }
+
+      function threeMonth() {
+        var endpoint = "threemonths/";
+        var defaultData = [];
+        var labels = [];
+
+        $.ajax({
+          method: "GET",
+          url: endpoint,
+          success: function (data) {
+            labels = data.labels;
+            defaultData = data.temp;
+
+            line_chart.destroy();
+            const ctx = document.getElementById("myChart");
+
+            var config = {
+              type: "line",
+              data: {
+                labels: labels,
+                datasets: [
+                  {
+                    label: "Temperature",
+                    data: defaultData,
+                  },
+                ],
+              },
+              
+              options: {
+                scales: {
+                  x: {        
+                             
+                      display: false                    
+                  },
+                  y: {
+                      
+                      beginAtZero: true
+                    }
+                }
+              },
+            };
+            line_chart = new Chart(ctx, config);
+          },
+
+          error: function (error_data) {
+            console.log("error");
+            console.log(error_data);
+          },
+        });
+      }
+    </script>
+    
+  </head>
+
+  <body>
+    <div id="button" align="middle">
+      
+        <button id="OneMonth" class="btn btn-success" onclick="oneMonth()">One month</button>
+        <button id="twoMonth" class="btn btn-success" onclick="twoMonth()">Two months</button>
+        <button id="twoMonth" class="btn btn-success" onclick="threeMonth()">Three months</button>
+      
+    <div>
+    <div>
+        <canvas id="myChart" width="auto" height="100"></canvas>
+    </div>
+    </head>
+  </body>
+</html>
