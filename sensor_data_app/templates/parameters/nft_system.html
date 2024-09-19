@@ -1,0 +1,130 @@
+{% load static %} {% include 'partial/_layout.html' %}
+
+<head>
+  <link rel="stylesheet" href="{% static '/css/ListGroup.css' %}" />
+</head>
+
+<body>
+  <h4 class="text-sm-center" style="color: green">NFT System Control</h4>
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="container">
+      <div class="row">
+        <div class="table-responsive">
+          <table class="table user-list">
+            <tbody>
+              <tr>
+                <td width="50%">
+                  <div class="col-md-auto">
+                    <a class="user-link">PH Control</a>
+                  </div>
+                </td>
+                <td width="20%">
+                  <div class="col-md-auto">
+                    <input
+                      type="range"
+                      name="PH_Min"
+                      id="PH_Min"                      
+                      min="4"
+                      max="7.5"
+                      value="{{nftData.PH_Min}}"
+                      step="0.5"
+                      oninput="PH_MinDisp.value=PH_Min.value"
+                    />
+                    <br/>
+                    <label>Min PH: </label>
+                    <output
+                      id="PH_MinDisp"
+                      name="PH_MinDisp"
+                      for="PH_Min"
+                      onload="PH_MinDisp.value = PH_Min.value"
+                      >{{nftData.PH_Min}}</output
+                    >
+                  </div>
+                </td>
+                <td width="20%">
+                  <div class="col-md-auto">
+                    <input
+                      type="range"
+                      name="PH_Max"
+                      id="PHMax"                      
+                      min="4"
+                      max="7.5"
+                      value="{{nftData.PH_Max}}"
+                      step="0.5"
+                      oninput="PH_Max_Dis.value=PH_Max.value"
+                    />
+                    <br/>
+                    <label>Max PH: </label>
+                    <output
+                      id="PH_Max_Dis"
+                      name="PH_Max_Dis"
+                      for="PH_Max"
+                      >{{nftData.PH_Max}}</output
+                    >
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td width="50%">
+                  <div class="col-md-auto">
+                    <a class="user-link">EC Control</a>
+                  </div>
+                </td>
+                <td width="20%">
+                  <div class="col-md-auto">
+                    <input
+                      type="range"
+                      name="EC_Min"
+                      id="ECMin"                      
+                      min="500"
+                      max="3000"
+                      value="{{nftData.EC_Min}}"
+                      step="5"
+                      oninput="ECDispl.value=EC_Min.value"
+                    />
+                    <br />
+                    <label>Min EC: </label>
+                    <output
+                      id="ECDisp"
+                      name="ECDispl"
+                      for="EC_Min"
+                      >{{nftData.EC_Min}}</output
+                    >
+                  </div>
+                </td>
+                <td width="20%">
+                  <div class="col-md-auto">
+                    <input
+                      type="range"
+                      name="EC_Max"
+                      id="ECMax"                      
+                      min="500"
+                      max="3000"
+                      value="{{nftData.EC_Max}}"
+                      step="5"
+                      oninput="ECMaxDisp.value=EC_Max.value"
+                    />
+                    <br />
+                    <label>Max EC: </label>
+                    <output
+                      id="ECMaxDisp"
+                      name="ECMaxDisp"
+                      for="EC_Max"
+                      >{{nftData.EC_Max}}</output
+                    >
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="margin-left: 895px">
+            <button type="submit" class="btn btn-primary">
+              Change Control Parameters
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>

@@ -1,0 +1,68 @@
+{% load static %} {% include 'partial/_layout.html' %} 
+
+<head>
+  <link rel="stylesheet" href="{% static '/css/ListGroup.css' %}" />
+  <link
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+  <h4 class="text-sm-center" style="color: green">Parameters Setting</h4>
+  <div class="container">
+    <div class="row">
+      <div class="table-responsive">
+        <table class="table user-list">
+          <tbody>
+            <tr>
+              <td>
+                <div class="col-md-auto">
+                  <a href="{% url 'enviroment_control' %}" class="user-link"
+                    >Enviroment Control</a
+                  >
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="col-md-auto">
+                  <a href="{% url 'nft_system' %}" class="user-link"
+                    >NFT system Control</a
+                  >
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="col-md-auto">
+                  <a href="{% url 'ducth_bucket_1' %}" class="user-link"
+                    >Dutch Bucket One Control</a
+                  >
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="col-md-auto">
+                  <a href="{% url 'ducth_bucket_2' %}" class="user-link"
+                    >Dutch Bucket Two Control</a
+                  >
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="col-md-auto">
+                  <a href="{% url 'seedling' %}" class="user-link"
+                    >Seedling System Control</a
+                  >
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>

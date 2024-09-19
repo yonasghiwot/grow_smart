@@ -1,0 +1,213 @@
+{% load static %} {% include 'partial/_layout.html' %} 
+
+<head>
+  <link rel="stylesheet" href="{% static '/css/ToggleSwitch.css' %}" />
+  <link rel="stylesheet" href="{% static '/css/ListGroup.css' %}" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  />
+  <link
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <h4 class="text-sm-center" style="color: green">Relay Setting</h4>
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="container">
+      <div class="row">
+        <div class="table-responsive">
+          <table class="table user-list">
+            <tbody>
+              <tr>
+                <td>
+                  <div class="col-md-auto">                    
+                    <a href="#" class="user-link">Relay One</a>
+                  </div>
+                </td>
+                <td width="20%">
+                  <div class="col-md-auto">
+                    <!-- Rounded switch -->
+                    <label class="switch">
+                      <input type="hidden" name="Relay1" value="False"/>
+                      {% if relaysData.Relay1 %}
+                        <input type="checkbox" name="Relay1" id="Relay1" value="True" checked/>  
+                      {% else %}
+                        <input type="checkbox" name="Relay1" id="Relay1" value="True"/> 
+                      {% endif %}                  
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="col-md-auto">
+                    <a href="#" class="user-link">Relay Two</a>
+                  </div>
+                </td>
+
+                <td width="20%">
+                  <div class="col-md-auto">
+                    <!-- Rounded switch -->
+                    <label class="switch">
+                      <input type="hidden" name="Relay2" value="False"/>
+                      {% if relaysData.Relay2 %}
+                        <input type="checkbox" name="Relay2" id="Relay2" value="True" checked/>  
+                      {% else %}
+                        <input type="checkbox" name="Relay2" id="Relay2" value="True"/> 
+                      {% endif %} 
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="col-md-auto">
+                    <a href="#" class="user-link">Relay Three</a>
+                  </div>
+                </td>
+
+                <td width="20%">
+                  <div class="col-md-auto">
+                    <!-- Rounded switch -->
+                    <label class="switch">
+                      <input type="hidden" name="Relay3" value="False"/>
+                      {% if relaysData.Relay3 %}
+                        <input type="checkbox" name="Relay3" id="Relay3" value="True" checked/>  
+                      {% else %}
+                        <input type="checkbox" name="Relay3" id="Relay3" value="True"/> 
+                      {% endif %} 
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="col-md-auto">
+                    <a href="#" class="user-link">Relay Four</a>
+                  </div>
+                </td>
+
+                <td width="20%">
+                  <div class="col-md-auto">
+                    <!-- Rounded switch -->
+                    <label class="switch">
+                      <input type="hidden" name="Relay4" value="False"/>
+                      {% if relaysData.Relay4 %}
+                        <input type="checkbox" name="Relay4" id="Relay4" value="True" checked/>  
+                      {% else %}
+                        <input type="checkbox" name="Relay4" id="Relay4" value="True"/> 
+                      {% endif %} 
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="col-md-auto">
+                    <a href="#" class="user-link">Relay Five</a>
+                  </div>
+                </td>
+
+                <td width="20%">
+                  <div class="col-md-auto">
+                    <!-- Rounded switch -->
+                    <label class="switch">
+                      <input type="hidden" name="Relay5" value="False"/>
+                      {% if relaysData.Relay5 %}
+                        <input type="checkbox" name="Relay5" id="Relay5" value="True" checked/>  
+                      {% else %}
+                        <input type="checkbox" name="Relay5" id="Relay5" value="True"/> 
+                      {% endif %} 
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="col-md-auto">
+                    <a href="#" class="user-link">Relay Six</a>
+                  </div>
+                </td>
+
+                <td width="20%">
+                  <div class="col-md-auto">
+                    <!-- Rounded switch -->
+                    <label class="switch">
+                      <input type="hidden" name="Relay6" value="False"/>
+                      {% if relaysData.Relay6 %}
+                        <input type="checkbox" name="Relay6" id="Relay6" value="True" checked/>  
+                      {% else %}
+                        <input type="checkbox" name="Relay6" id="Relay6" value="True"/> 
+                      {% endif %} 
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="col-md-auto">
+                    <a href="#" class="user-link">Relay Seven</a>
+                  </div>
+                </td>
+
+                <td width="20%">
+                  <div class="col-md-auto">
+                    <!-- Rounded switch -->
+                    <label class="switch">
+                      <input type="hidden" name="Relay7" value="False"/>
+                      {% if relaysData.Relay7 %}
+                        <input type="checkbox" name="Relay7" id="Relay7" value="True" checked/>  
+                      {% else %}
+                        <input type="checkbox" name="Relay7" id="Relay7" value="True"/> 
+                      {% endif %} 
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="col-md-auto">
+                    <a href="#" class="user-link">Relay Eight</a>
+                  </div>
+                </td>
+
+                <td width="20%">
+                  <div class="col-md-auto">
+                    <!-- Rounded switch -->
+                    <label class="switch">
+                      <input type="hidden" name="Relay8" value="False"/>
+                      {% if relaysData.Relay8 %}
+                        <input type="checkbox" name="Relay8" id="Relay8" value="True" checked/>  
+                      {% else %}
+                        <input type="checkbox" name="Relay8" id="Relay8" value="True"/> 
+                      {% endif %} 
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </td>
+              </tr>              
+            </tbody>
+          </table>
+          <div style="margin-left: 890px">
+            <button type="submit" class="btn btn-primary">
+              Change Relays Setting
+            </button>
+        </div>
+      </div>
+    </div>
+    <div id="errorLable">
+      <label> </label>
+    </div>
+  </form>
+</body>
