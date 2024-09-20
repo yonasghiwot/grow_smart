@@ -54,5 +54,4 @@ This project involves developing and deploying a Django-based full-stack web app
 - **Yonas**
 - **Dagmawit**
 
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+
