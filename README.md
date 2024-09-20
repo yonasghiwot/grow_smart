@@ -20,3 +20,39 @@ This project involves developing and deploying a Django-based full-stack web app
 - **Environment Control**: Allows users to set parameters for EC, pH, and humidity.
 
 ## Project Structure
+
+## Installation
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/grow_smart.git
+    cd grow_smart
+    ```
+
+2. Set up a virtual environment and install dependencies:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    pip install -r requirements.txt
+    ```
+
+3. Apply migrations:
+    ```bash
+    python manage.py migrate
+    ```
+
+4. Run the development server:
+    ```bash
+    python manage.py runserver
+    ```
+
+## Usage
+- Access the application at `http://127.0.0.1:8000/`.
+- Use the navigation menu to access different features like Sensors, Relay, and Parameter Settings.
+- Log in or register to access user-specific features.
+
+## Contributors
+- **Yonas**
+- **Dagmawit**
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
