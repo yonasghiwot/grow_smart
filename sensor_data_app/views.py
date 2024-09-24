@@ -10,7 +10,7 @@ from django.http import JsonResponse
 
 # Create your views here.
 
-#@login_required
+@login_required
 def dashboard(request):
     return render(request,
                   'registration/account/dashboard.html',
@@ -28,32 +28,32 @@ def user_login(request):
                     login(request, user)
                     return render(request, 'home.html')
                 else:
-                    #return HttpResponse('fuck Invalid login')
-                    return render(request, 'home.html')
+                    return HttpResponse('fuck Invalid login')
+                    #return render(request, 'home.html')
             else:
-                #return HttpResponse('Invalid login')
-                return render(request, 'home.html')
+                return HttpResponse('Invalid login')
+                #return render(request, 'home.html')
     else:
         form= LoginForm()
-    #return render(request, 'account/login.html', {'form': form})
-    return render(request, 'home.html')
+    return render(request, 'account/login.html', {'form': form})
+    #return render(request, 'home.html')
 
-#@login_required
+@login_required
 def home_page(request):
     return render(request, 'home.html') 
 
-#@login_required # decorator for views that checks the user is logd in if not redirect it to login page
+@login_required # decorator for views that checks the user is logd in if not redirect it to login page
 def sensor_display(request):
     sensorData = SensorsData.objects.all().order_by('id')
     count = sensorData.count()
     sensorDisplay = sensorData[count-1]
     return render(request, 'sensor_data/sensor_display.html', {'sensorsdata': sensorDisplay})
 
-#@login_required
+@login_required
 def parameters(request):
     return render(request, 'parameters/index.html')
 
-#@login_required
+@login_required
 def enviroment_control(request):
 
     controlParameters = ControlParameters.objects.all()[0]
@@ -75,7 +75,7 @@ def enviroment_control(request):
 
     return render(request, 'parameters/enviroment_control.html', {'controlParameters':controlParameters})
 
-#@login_required
+@login_required
 def nft_system(request):
 
     nftSystem = ControlParameters.objects.all()[0]
@@ -99,7 +99,7 @@ def nft_system(request):
 
     return render(request, 'parameters/nft_system.html', {'nftData': nftSystem})
 
-#@login_required
+@login_required
 def relays(request):
 
     relays = Relays.objects.all()[0]
@@ -132,7 +132,7 @@ def relays(request):
 
     return render(request, 'relays/index.html', {'relaysData': relays})
 
-#@login_required
+@login_required
 def ducth_bucket_1(request):
 
     dutch_bucket_data = DutchBucketOne.objects.all()[0]   
@@ -158,7 +158,7 @@ def ducth_bucket_1(request):
 
     return render(request, 'parameters/dutch_bucket_1.html', {'dutch_bucket_1_data': dutch_bucket_data})
 
-#@login_required
+@login_required
 def ducth_bucket_2(request):
 
     dutch_bucket_data = DutchBucketTwo.objects.all()[0]   
@@ -183,7 +183,7 @@ def ducth_bucket_2(request):
 
 
     return render(request, 'parameters/dutch_bucket_2.html', {'dutch_bucket_2_data': dutch_bucket_data})
-#@login_required
+@login_required
 def seedling(request):
 
     seedling_data = SeedlingControl.objects.all()[0]   

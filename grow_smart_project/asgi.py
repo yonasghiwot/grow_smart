@@ -1,5 +1,5 @@
 """
-ASGI config for ethio_leap_gui project.
+ASGI config for grow_smart_project project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ethio_leap_gui.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'grow_smart_project.settings')
 
 application = get_asgi_application()

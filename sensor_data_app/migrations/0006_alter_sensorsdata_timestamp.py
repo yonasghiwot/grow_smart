@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ethio_leap_gui_app', '0005_dutchbucketone_dutchbuckettwo_seedlingcontrol'),
+        ('sensor_data_app', '0005_dutchbucketone_dutchbuckettwo_seedlingcontrol'),
     ]
 
     operations = [

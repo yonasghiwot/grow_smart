@@ -1,4 +1,4 @@
-"""ethio_leap_gui URL Configuration
+"""grow_smart_project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -19,8 +19,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [    
-    path('', include('ethio_leap_gui_app.urls')),
-    path('data_visual/', include('data_visualization.urls')),
+    path('', include('sensor_data_app.urls')),
+    path('data_visual/', include('data_visualization_app.urls')),
     path('accounts/', include("django.contrib.auth.urls")),
     path('admin/', admin.site.urls),
 ]

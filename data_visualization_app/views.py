@@ -1,14 +1,9 @@
-"""
-This module contains views for handling requests related to the data visualization app,
-including rendering templates and providing JSON responses for sensor data.
-"""
-
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.contrib.auth import get_user_model
-from ethio_leap_gui_app.models import SensorsData
+from sensor_data_app.models import SensorsData
 from datetime import *
 from dateutil.relativedelta import *
 import calendar
@@ -18,13 +13,11 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 user = get_user_model()
 
-#@login_required
-def data_visualization(request):
-    """Render the data visualization page."""
-    return render(request, 'data_visualization/data.html')
+@login_required
+def data_visualization_app(request):
+    return render(request, 'data_visualization_app/data.html')
 
 def get_data(request):
-    """Retrieve sales data for visualization."""
     data = {
         "sales": 100,
         "customers": 10,
@@ -32,12 +25,11 @@ def get_data(request):
     return JsonResponse(data)
 
 class ChartData(APIView):
-    """View for handling chart data requests."""
+   
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        """Handle GET requests for data visualization."""
         labels = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
         default_items = [1234, 1222, 1211, 2333, 3333, 3422]
         data = {
@@ -51,12 +43,13 @@ class ChartData(APIView):
 # Temperature data visualization
 
 class OneMonths(APIView):
-    """View for handling one month's data visualization."""
+   
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        """Handle GET requests for the view."""
+        
+        
         current_time = datetime.now()
         two_months = current_time - relativedelta(months=+1)
         sensorData = list(SensorsData.objects.filter(TimeStamp__lte=current_time, TimeStamp__gte=two_months).order_by('TimeStamp').values())
@@ -88,12 +81,13 @@ class OneMonths(APIView):
 
 
 class TwoMonths(APIView):
-    """View for handling two months data visualization."""
+   
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        """Handle GET requests for the view."""
+        
+        
         current_time = datetime.now()
         two_months = current_time - relativedelta(months=+2)
         sensorData = list(SensorsData.objects.filter(TimeStamp__lte=current_time, TimeStamp__gte=two_months).order_by('TimeStamp').values())
@@ -124,12 +118,13 @@ class TwoMonths(APIView):
         return Response(data)
 
 class ThreeMonths(APIView):
-    """View for handling three months data visualization."""
+   
     authentication_classes = []
     permission_classes = []
 
-    def get(self, request, format=None):   
-        """Handle GET requests for the view."""    
+    def get(self, request, format=None):
+            
+            
         current_time = datetime.now()
         two_months = current_time - relativedelta(months=+3)
         sensorData = list(SensorsData.objects.all().order_by('id').values())
@@ -162,16 +157,16 @@ class ThreeMonths(APIView):
 # Humidity data vizualization
 #@login_required
 def humidity(request):
-    """Render the humidity page."""
-    return render(request, 'data_visualization/humidity.html')
+    return render(request, 'data_visualization_app/humidity.html')
 
 class HumidityOneMonths(APIView):
-    """API view for humidity data over one month."""
+   
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        """Handle GET requests for the view."""
+        
+        
         current_time = datetime.now()
         two_months = current_time - relativedelta(months=+1)
         sensorData = list(SensorsData.objects.filter(TimeStamp__lte=current_time, TimeStamp__gte=two_months).order_by('TimeStamp').values())
@@ -203,12 +198,13 @@ class HumidityOneMonths(APIView):
 
 
 class HumidityTwoMonths(APIView):
-    """API view for humidity data over two months."""
+   
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        """Retrieve humidity data for the last two months."""
+        
+        
         current_time = datetime.now()
         two_months = current_time - relativedelta(months=+2)
         sensorData = list(SensorsData.objects.filter(TimeStamp__lte=current_time, TimeStamp__gte=two_months).order_by('TimeStamp').values())
@@ -239,12 +235,13 @@ class HumidityTwoMonths(APIView):
         return Response(data)
 
 class HumidityThreeMonths(APIView):
-    """API view for humidity data over three months."""
+   
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        """Retrieve humidity data for the last three months."""
+            
+            
         current_time = datetime.now()
         two_months = current_time - relativedelta(months=+3)
         sensorData = list(SensorsData.objects.filter(TimeStamp__lte=current_time, TimeStamp__gte=two_months).order_by('TimeStamp').values())
@@ -278,16 +275,16 @@ class HumidityThreeMonths(APIView):
 
 #@login_required
 def ph(request):
-    """Render the PH page."""
-    return render(request, 'data_visualization/ph.html')
+    return render(request, 'data_visualization_app/ph.html')
 
 class phOneMonths(APIView):
-    """API view for PH data over one month."""
+   
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        """Handle GET requests for the view."""
+        
+        
         current_time = datetime.now()
         two_months = current_time - relativedelta(months=+1)
         sensorData = list(SensorsData.objects.filter(TimeStamp__lte=current_time, TimeStamp__gte=two_months).order_by('TimeStamp').values())
@@ -319,12 +316,13 @@ class phOneMonths(APIView):
 
 
 class PhTwoMonths(APIView):
-    """API view for PH data over two months."""
+   
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        """Handle GET requests for the view."""
+        
+        
         current_time = datetime.now()
         two_months = current_time - relativedelta(months=+2)
         sensorData = list(SensorsData.objects.filter(TimeStamp__lte=current_time, TimeStamp__gte=two_months).order_by('TimeStamp').values())
@@ -355,12 +353,13 @@ class PhTwoMonths(APIView):
         return Response(data)
 
 class PhThreeMonths(APIView):
-    """API view for PH data over three months."""
+   
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        """Handle GET requests for the view."""
+            
+            
         current_time = datetime.now()
         two_months = current_time - relativedelta(months=+3)
         sensorData = list(SensorsData.objects.filter(TimeStamp__lte=current_time, TimeStamp__gte=two_months).order_by('TimeStamp').values())
@@ -393,16 +392,16 @@ class PhThreeMonths(APIView):
 # EC data visualization
 #@login_required
 def ec(request):
-    """Render the EC page."""
-    return render(request, 'data_visualization/ec.html')
+    return render(request, 'data_visualization_app/ec.html')
 
 class EcOneMonths(APIView):
-    """API view for EC data over one month."""
+   
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        """Handle GET requests for the view."""
+        
+        
         current_time = datetime.now()
         two_months = current_time - relativedelta(months=+1)
         sensorData = list(SensorsData.objects.filter(TimeStamp__lte=current_time, TimeStamp__gte=two_months).order_by('TimeStamp').values())
@@ -434,12 +433,13 @@ class EcOneMonths(APIView):
 
 
 class EcTwoMonths(APIView):
-    """API view for EC data over two months."""
+   
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        """Handle GET requests for the view."""
+        
+        
         current_time = datetime.now()
         two_months = current_time - relativedelta(months=+2)
         sensorData = list(SensorsData.objects.filter(TimeStamp__lte=current_time, TimeStamp__gte=two_months).order_by('TimeStamp').values())
@@ -470,12 +470,13 @@ class EcTwoMonths(APIView):
         return Response(data)
 
 class EcThreeMonths(APIView):
-    """API view for EC data over three months."""
+   
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        """Handle GET requests for the view."""
+            
+            
         current_time = datetime.now()
         two_months = current_time - relativedelta(months=+3)
         sensorData = list(SensorsData.objects.filter(TimeStamp__lte=current_time, TimeStamp__gte=two_months).order_by('TimeStamp').values())
@@ -509,16 +510,16 @@ class EcThreeMonths(APIView):
 #@login_required
 
 def ec(request):
-    """Render the PH page."""
-    return render(request, 'data_visualization/ec.html')
+    return render(request, 'data_visualization_app/ec.html')
 
 class phOneMonths(APIView):
-    """API view for PH data over one month."""
+   
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        """Handle GET requests for the view."""
+        
+        
         current_time = datetime.now()
         two_months = current_time - relativedelta(months=+1)
         sensorData = list(SensorsData.objects.filter(TimeStamp__lte=current_time, TimeStamp__gte=two_months).order_by('TimeStamp').values())
@@ -550,12 +551,13 @@ class phOneMonths(APIView):
 
 
 class PhTwoMonths(APIView):
-    """API view for PH data over two months."""
+   
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        """Handle GET requests for the view."""
+        
+        
         current_time = datetime.now()
         two_months = current_time - relativedelta(months=+2)
         sensorData = list(SensorsData.objects.filter(TimeStamp__lte=current_time, TimeStamp__gte=two_months).order_by('TimeStamp').values())
@@ -586,12 +588,13 @@ class PhTwoMonths(APIView):
         return Response(data)
 
 class PhThreeMonths(APIView):
-    """API view for PH data over three months."""
+   
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        """Handle GET requests for the view."""
+            
+            
         current_time = datetime.now()
         two_months = current_time - relativedelta(months=+3)
         sensorData = list(SensorsData.objects.filter(TimeStamp__lte=current_time, TimeStamp__gte=two_months).order_by('TimeStamp').values())
