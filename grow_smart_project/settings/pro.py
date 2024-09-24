@@ -1,3 +1,6 @@
+"""
+This module contains production settings for the Grow Smart project.
+"""
 from .base import *
 
 DEBUG = False

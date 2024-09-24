@@ -1,3 +1,6 @@
+"""
+This module contains local settings for the Grow Smart project.
+"""
 from .base import *
 
 DEBUG = True
@@ -12,6 +15,3 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-
-}
-
