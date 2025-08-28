@@ -1,7 +1,8 @@
 # Grow Smart
 
 ## Project Overview
-This project involves developing and deploying a Django-based full-stack web application for green house controlled environment farming. The application includes two main apps: one for data visualization and another for handling sensor data and relay control. The front-end is enhanced using Bootstrap for a modern and responsive UI/UX.
+This ALX 
+project involves developing and deploying a Django-based full-stack web application for green house controlled environment farming. The application includes two main apps: one for data visualization and another for handling sensor data and relay control. The front-end is enhanced using Bootstrap for a modern and responsive UI/UX.
 
 ## Table of Contents
 - Project Overview
